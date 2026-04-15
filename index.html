@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Dodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="hud">
+      <p class="eyebrow">SURVIVE THE STORM</p>
+      <h1>Arrow Dodge</h1>
+      <div class="scoreboard">
+        <div>
+          <span class="label">Score</span>
+          <strong id="score">0.0s</strong>
+        </div>
+        <div>
+          <span class="label">Best</span>
+          <strong id="best-score">0.0s</strong>
+        </div>
+      </div>
+      <p class="instructions">방향키로 플레이어를 움직여 맵 밖에서 날아오는 화살을 피하세요.</p>
+      <button id="restart-button" class="restart-button" type="button">Start Game</button>
+
+      <section class="leaderboard-panel" aria-labelledby="leaderboard-title">
+        <div class="leaderboard-header">
+          <div>
+            <span class="label">Online</span>
+            <h2 id="leaderboard-title">Leaderboard</h2>
+          </div>
+          <button id="refresh-board" class="ghost-button" type="button">Refresh</button>
+        </div>
+        <p id="board-status" class="board-status">리더보드를 불러오는 중...</p>
+        <ol id="leaderboard" class="leaderboard"></ol>
+      </section>
+    </section>
+
+    <section class="game-shell">
+      <canvas id="game" width="720" height="720" aria-label="Arrow dodge game"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <p class="overlay-kicker">Ready?</p>
+          <h2 id="overlay-title">최대한 오래 버티세요</h2>
+          <p id="overlay-text">시작 버튼을 누르거나 스페이스바를 눌러 게임을 시작하세요.</p>
+
+          <form id="save-form" class="save-form hidden" autocomplete="off">
+            <label for="nickname" class="input-label">닉네임</label>
+            <input id="nickname" name="nickname" class="text-input" type="text" maxlength="16" placeholder="최대 16자">
+            <div class="save-actions">
+              <button id="save-score" class="restart-button small" type="submit">리더보드에 저장</button>
+              <button id="skip-save" class="ghost-button" type="button">저장 안 함</button>
+            </div>
+            <p id="save-status" class="save-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

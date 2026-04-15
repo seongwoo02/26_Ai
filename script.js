@@ -50,6 +50,8 @@ const state = {
   boardPollId: null,
 };
 
+const MAX_LEADERBOARD_ENTRIES = 10;
+
 bestScoreEl.textContent = formatScore(state.best);
 updateOverlay("최대한 오래 버티세요", "시작 버튼을 누르거나 스페이스바를 눌러 게임을 시작하세요.");
 render();
@@ -98,7 +100,7 @@ async function loadLeaderboard(options = {}) {
     }
 
     const payload = await response.json();
-    state.leaderboard = Array.isArray(payload.entries) ? payload.entries : [];
+    state.leaderboard = Array.isArray(payload.entries) ? payload.entries.slice(0, MAX_LEADERBOARD_ENTRIES) : [];
     renderLeaderboard();
     boardStatusEl.textContent = state.leaderboard.length
       ? `총 ${state.leaderboard.length}개의 기록`
@@ -453,7 +455,7 @@ async function submitScore(event) {
     }
 
     setSaveStatus("리더보드에 저장했습니다.");
-    state.leaderboard = payload.entries || [];
+    state.leaderboard = Array.isArray(payload.entries) ? payload.entries.slice(0, MAX_LEADERBOARD_ENTRIES) : [];
     renderLeaderboard();
     boardStatusEl.textContent = `총 ${state.leaderboard.length}개의 기록`;
     showSaveForm(false);

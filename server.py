@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 LEADERBOARD_PATH = ROOT / "leaderboard.json"
-MAX_ENTRIES = 20
+MAX_ENTRIES = 10
 
 
 def load_entries() -> list[dict]:

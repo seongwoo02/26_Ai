@@ -1,10 +1,12 @@
-# Arrow Dodge
+# 26_Ai
+
+26_1 인공지능개론 실습 저장소입니다.
+
+## Arrow Dodge
 
 맵 바깥에서 날아오는 화살을 피하며 오래 버티는 웹게임입니다.
 
 ## 실행
-
-PowerShell에서 아래 순서로 실행합니다.
 
 ```powershell
 cd E:\26_1Ai
